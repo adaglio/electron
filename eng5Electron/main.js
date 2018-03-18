@@ -16,7 +16,7 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow({});
     // load html into window
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'mainWindow.html'),
+        pathname: path.join(__dirname, 'dist/index.html'),
         protocol: 'file:',
         slashes: true
     }));
@@ -37,28 +37,6 @@ app.on('ready', function () {
 
 
 
-//Handle create add window
-function createAddWindow() {
-
-    // Create new Window
-    addWindow = new BrowserWindow({
-        width: 300,
-        height: 200,
-        title: 'Add Shopping List Item'
-    });
-    // load html into window
-    addWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'addWindow.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-    addWindow.on('close', function () {
-        addWindow = null;
-    });
-}
-
-
-
 
 
 //create menu template
@@ -69,9 +47,7 @@ const mainMenuTemplate = [
         submenu: [
             {
                 label: 'Add Item',
-                click() {
-                    createAddWindow();
-                }
+                
             },
             {
                 label: 'Clear Item'
